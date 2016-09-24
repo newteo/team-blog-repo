@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { Card, CardTitle, CardMedia, CardText } from 'material-ui/Card'
 import { Link } from 'react-router'
 
 var css = require('./style.styl')

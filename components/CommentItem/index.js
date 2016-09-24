@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+var css = require('./style.styl')
+
 export default class CommentItem extends Component {
 	render() {
 		const {avatarUrl, username, time, text} = this.props
@@ -8,12 +10,12 @@ export default class CommentItem extends Component {
 				<div className="avatar">
 					<img src={avatarUrl} />
 				</div>
-				<div>
-					<p>{username}</p>
-					<p>{time}</p>
-					<p>{text}</p>
+				<div className='comment-info'>
+					<p className='username'>username</p>
+					<p className='time'>{time}</p>
+					<p className='text'>{text}</p>
 				</div>
 			</div>
-		)		
+		)
 	}
 }

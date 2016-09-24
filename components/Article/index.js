@@ -43,12 +43,15 @@ export default class Article extends Component {
   }
 	render() {
 
-		const { data } = this.props.article	
+		const { data } = this.props.article
 		if(!data){
 			return (<div>loding...</div>)
-		}    
+		}
 		return(
 			<div className="article-entry">
+        <div className='title'>{data.title}</div>
+        <div className='updated'>{data.updated_at}</div>
+        <div className='login'>{data.user.login}</div>
 				<div dangerouslySetInnerHTML={{__html: marked(data.body || '')}} />
         <div></div>
 			</div>

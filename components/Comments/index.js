@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { ARTICLES_API } from '../../constant'
 import CommentItem from '../CommentItem'
 
+var css = require('./style.styl')
+
 export default class Comments extends Component {
 	componentDidMount() {
 		const { fetchComment } = this.props.actions
@@ -15,7 +17,7 @@ export default class Comments extends Component {
 		}
 		console.log(data)
 		return(
-			<div>
+			<div className='comment'>
 			{
 				data.map((item,index) => {
 					return(
@@ -29,6 +31,6 @@ export default class Comments extends Component {
 			}
 			</div>
 		)
-		
+
 	}
-} 
+}

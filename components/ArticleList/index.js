@@ -7,7 +7,7 @@ var css = require('./style.styl')
 export default class ArticleList extends Component {
 
 	constructor(props) {
-    super(props)    
+    super(props)
   }
 
 	componentDidMount() {
@@ -22,10 +22,10 @@ export default class ArticleList extends Component {
 
 		const pattern = /\!\[[^/]*\]\([^)]{4,}\)/
 		var matchArray
-		if((matchArray = pattern.exec(markdownString)) != null){	
+		if((matchArray = pattern.exec(markdownString)) != null){
 			let index = matchArray[0].indexOf('(')
 			let url = matchArray[0].slice(index+1,-1)
-			let markdown = matchArray[0]			
+			let markdown = matchArray[0]
 			return {
 				url,
 				markdown
@@ -37,16 +37,18 @@ export default class ArticleList extends Component {
 
 		let obj = this._transMarkdown(markdownString)
 		const firstImg = (obj && obj.markdown) ? obj.markdown : 'xx'
-		return markdownString.replace(firstImg,'').slice(0,100)+'...'
+		return markdownString.replace(firstImg,'').slice(0,80)+'...'
 	}
-
+  _timeHandle(time) {
+    return time.slice(0,10).replace(/-/g,'/')
+  }
 	render() {
 
 		const { data } = this.props.articles
 		if(!data){
 			return (<div>loading...</div>)
 		}
-		
+
 		return(
 			<div className="article-content">
 				<div className="article-list-header">
@@ -59,12 +61,13 @@ export default class ArticleList extends Component {
 						let obj = this._transMarkdown(item.body)
 						return (
 								<ArticleCard key={index}
-									id={item.number}								
+									id={item.number}
 									title={item.title}
-									username={item.user.login}								
+                  time={this._timeHandle(item.updated_at)}
+									username={item.user.login}
 									url={(obj && obj.url) ? obj.url : '/images/nature-600-337.jpg'}
 									describe={this._getDescribe(item.body)}
-									/>				
+									/>
 						)
 					})
 				}

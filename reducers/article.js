@@ -10,7 +10,7 @@ export default function article (state = InitState, action) {
 		case 'FETCH_ARTICLE_REQUEST':
 			return Object.assign({}, state, {status: 'fetch_start'})
 		case 'FETCH_ARTICLE_SUCCESS':
-			return Object.assign({}, state, {status: 'fetch_success', data: action.ArticleList})
+			return Object.assign({}, state, {status: 'fetch_success', data: action.Article})
 		case 'FETCH_ARTICLE_FAILURE':
 			return Object.assign({}, state, {status: 'fetch_failure', errMsg: action.err})
 		default:

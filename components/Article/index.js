@@ -19,7 +19,9 @@ export default class Article extends Component {
       const javascript = 'javascript'
       return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
     }
-
+    renderer.img = () => {
+      return `<img className="cover" />`
+    }
     marked.setOptions({
       highlight: function (code, javascript) {
         return require('highlight.js').highlightAuto(code).value
@@ -46,11 +48,15 @@ export default class Article extends Component {
 		const { data } = this.props.article	
 		if(!data){
 			return (<div>loding...</div>)
-		}    
+		}
+    data.title
+    data.updated_at
+    data.user.loging
 		return(
 			<div className="article-entry">
+        <div>{data.updated_at}</div>
 				<div dangerouslySetInnerHTML={{__html: marked(data.body || '')}} />
-        <div></div>
+        
 			</div>
 		)
 	}

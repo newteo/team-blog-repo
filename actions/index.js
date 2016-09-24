@@ -41,7 +41,7 @@ function fetchArticleRequest() {
 function fetchArticleSuccess(json) {
   return {
     type: 'FETCH_ARTICLE_SUCCESS',
-    ArticleList: json
+    Article: json
   }
 }
 function fetchArticleFailure(err) {

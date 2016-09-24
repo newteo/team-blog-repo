@@ -2,7 +2,7 @@ import React,{ Component } from 'react'
 import Article from '../Article'
 import Comments from '../Comments'
 
-var css = require('./style.styl')
+
 
 export default class Detail extends Component {
 	constructor(props) {

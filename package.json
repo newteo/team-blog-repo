@@ -8,13 +8,11 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
-    "classnames": "^2.2.5",
-    "cors": "^2.8.1",
+    "classnames": "^2.2.5",    
     "css-loader": "^0.25.0",
     "highlight.js": "^9.7.0",
     "isomorphic-fetch": "^2.2.1",
-    "marked": "^0.3.6",
-    "material-ui": "^0.15.4",
+    "marked": "^0.3.6",    
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.1.2",
@@ -57,7 +55,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --timeout 8000 --recursive --compilers js:babel-register --require ignore-styles --require ./test/setup.js",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",

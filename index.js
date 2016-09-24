@@ -9,10 +9,6 @@ import configureStore from './store/configureStore'
 
 import Root from './containers/Root'
 
-import injectTapEventPlugin from 'react-tap-event-plugin'
-
-injectTapEventPlugin()
-console.log(injectTapEventPlugin)
 
 const styles = require('./styles/index.styl')
 

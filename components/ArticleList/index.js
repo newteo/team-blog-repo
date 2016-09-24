@@ -1,16 +1,20 @@
 import React,{ Component } from 'react'
 import { ARTICLES_API } from '../../constant'
 import ArticleCard from '../ArticleCard'
+import { timeHandle } from '../../minix' 
+import Loading from '../Loading'
+import { ARTICLES } from '../../settings'
 
 var css = require('./style.styl')
 
 export default class ArticleList extends Component {
 
 	constructor(props) {
-    super(props)    
+    super(props)
   }
 
 	componentDidMount() {
+		
 		const { fetchArticleList } = this.props.actions
 		fetchArticleList(ARTICLES_API)
 	}
@@ -22,10 +26,10 @@ export default class ArticleList extends Component {
 
 		const pattern = /\!\[[^/]*\]\([^)]{4,}\)/
 		var matchArray
-		if((matchArray = pattern.exec(markdownString)) != null){	
+		if((matchArray = pattern.exec(markdownString)) != null){
 			let index = matchArray[0].indexOf('(')
 			let url = matchArray[0].slice(index+1,-1)
-			let markdown = matchArray[0]			
+			let markdown = matchArray[0]
 			return {
 				url,
 				markdown
@@ -38,22 +42,20 @@ export default class ArticleList extends Component {
 		let obj = this._transMarkdown(markdownString)
 		const firstImg = (obj && obj.markdown) ? obj.markdown : 'xx'
 		return markdownString.replace(firstImg,'').slice(0,80)+'...'
+
 	}
-	_timeHandle(time) {
-		return time.slice(0,10).replace(/-/g,'/')
-	}
+  
 	render() {
 
 		const { data } = this.props.articles
 		if(!data){
-			return (<div>loading...</div>)
+			return <Loading />
 		}
-		
 		return(
 			<div className="article-content">
 				<div className="article-list-header">
-					<p>文章列表</p>
-					<p>ARTICLES</p>
+					<p>{ARTICLES.zh}</p>
+					<p>{ARTICLES.eng}</p>
 				</div>
 				<div className="article-list">
 				{
@@ -63,11 +65,11 @@ export default class ArticleList extends Component {
 								<ArticleCard key={index}
 									id={item.number}
 									title={item.title}
-									time={this._timeHandle(item.updated_at)}
+                  time={timeHandle(item.updated_at)}
 									username={item.user.login}
 									url={(obj && obj.url) ? obj.url : '/images/nature-600-337.jpg'}
 									describe={this._getDescribe(item.body)}
-									/>				
+									/>
 						)
 					})
 				}

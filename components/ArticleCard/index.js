@@ -7,22 +7,26 @@ var css = require('./style.styl')
 export default class ArticleCard extends Component {
 
 	render() {
-		const { id, title, time, username, url, describe} = this.props 
+
+		const { id, title, username, time, url, describe} = this.props
 		return(
 			<div className="article-card">
-				<Link style={{textDecoration: 'none'}}to={`/posts/${id}`}>					
-					<div className="card-info">
-						<p>{title}</p>
-						<p>{time}</p>
-						<p>{username}</p>
-					</div>
-					<div className="card-img">
-						<img src={url}/>
-						<p>{describe}</p>
-					</div>
+				<Link style={{textDecoration: 'none'}}to={`/posts/${id}`}>
+            <div className="card-info">
+              <div className='title'>{title}</div>              
+              <div className='sub-title'>
+                <p>{username}</p>
+                <p>{time}</p>
+              </div>              
+            </div>
+            <div className='card-img'>
+              <img src={url}/>
+              <p>{describe}</p>
+            </div>
+
 				</Link>
 			</div>
-		)		
+		)
 	}
 }
 

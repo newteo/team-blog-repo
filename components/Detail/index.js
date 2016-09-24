@@ -4,6 +4,8 @@ import Comments from '../Comments'
 
 
 
+
+
 export default class Detail extends Component {
 	constructor(props) {
     super(props)
@@ -11,7 +13,7 @@ export default class Detail extends Component {
 
 	render() {
 		const { actions, article, comments } = this.props
-		const id = this.props.params.id		
+		const id = this.props.params.id
 		return(
 			<div>
 				<Article id={id} actions={actions} article={article}/>

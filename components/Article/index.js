@@ -1,7 +1,9 @@
 import React,{ Component } from 'react'
 import marked, { Renderer } from 'marked'
-import { ARTICLE_API } from '../../constant'
+import { ARTICLES_API } from '../../constant'
 import highlightjs from 'highlight.js'
+import { timeHandle } from '../../minix'
+import Loading from '../Loading'
 
 var css = require('./style.styl')
 
@@ -41,20 +43,20 @@ export default class Article extends Component {
   componentDidMount() {
   	const { fetchArticle } = this.props.actions
   	const id = this.props.id
-		fetchArticle(`${ARTICLE_API}/${id}`)
+		fetchArticle(`${ARTICLES_API}/${id}`)
   }
 	render() {
 
-		const { data } = this.props.article	
+		const { data } = this.props.article
 		if(!data){
-			return (<div>loding...</div>)
+			return (<Loading />)
 		}
-    data.title
-    data.updated_at
-    data.user.loging
+
 		return(
 			<div className="article-entry">
-        <div>{data.updated_at}</div>
+        <div className='title'>{data.title}</div>
+        <div className='login'>作者：{data.user.login}</div>
+        <div className='updated'>更新时间：{timeHandle(data.updated_at)}</div>
 				<div dangerouslySetInnerHTML={{__html: marked(data.body || '')}} />
         
 			</div>

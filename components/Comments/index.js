@@ -18,7 +18,7 @@ export default class Comments extends Component {
 			return (<Loading />)
 		}
 		else if(data.length == 0){
-			return (<div className="no-comment">本篇文章暂时没有评论</div>)
+			return (<div className="no-comment"><i>文章暂时没有评论</i></div>)
 		}
 		return(
 			<div className='comment'>

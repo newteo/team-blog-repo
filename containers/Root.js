@@ -8,11 +8,11 @@ export default class Root extends Component {
   render() {
     const { store, history } = this.props
     return (
-      <MuiThemeProvider>
+      
         <Provider store={store}>
           <Router history={history} routes={routes} />
         </Provider>
-      </MuiThemeProvider>
+      
     )
   }
 }

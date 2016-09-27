@@ -16,7 +16,7 @@ export default class ArticleCard extends Component {
               <div className='title'>{title}</div>
               <div className='sub-title'>
                 <p>{username}</p>
-                <p>{`${time}`}</p>
+                <p>•  {time}</p>
               </div>
             </div>
             <div className='card-img'>

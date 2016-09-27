@@ -19,6 +19,7 @@ export default class Comments extends Component {
 			return (<Loading />)
 		}
 		else if(data.length == 0){
+
 			return (
 				<div>
 					<div className="no-comment">

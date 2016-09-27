@@ -5,7 +5,6 @@ import ArticleList from '../ArticleList'
 export default class Home extends Component {
 	render() {
 		const { actions, articles } = this.props
-		
 		return (
 			<div>
 				<Banner />

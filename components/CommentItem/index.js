@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import MarkdownParse from '../MarkdownParse'
 
 var css = require('./style.styl')
 
@@ -13,7 +14,8 @@ export default class CommentItem extends Component {
 				<div className='comment-info'>
 					<p className='username'>{username}</p>
 					<p className='time'>{time}</p>
-					<p className='text'>{text}</p>
+					
+					<MarkdownParse id="text" body={text} />
 				</div>
 			</div>
 		)

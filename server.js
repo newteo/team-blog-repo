@@ -1,26 +1,32 @@
-var webpack = require('webpack')
-var webpackDevMiddleware = require('webpack-dev-middleware')
-var webpackHotMiddleware = require('webpack-hot-middleware')
-var config = require('./webpack.config')
+// var webpack = require('webpack')
+// var webpackDevMiddleware = require('webpack-dev-middleware')
+// var webpackHotMiddleware = require('webpack-hot-middleware')
+// var config = require('./webpack.config')
 
 
-var app = new (require('express'))()
+// var app = new (require('express'))()
 var port = 5000
 
-var compiler = webpack(config)
+// var compiler = webpack(config)
 /////////
+// const express = require('express')
+/////////
+
 const express = require('express')
-/////////
+const app = express()
+
 app.use('/images', express.static('images'))
+app.use('/dist', express.static('dist'))
 
 
-
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))
+/*app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
+app.use(webpackHotMiddleware(compiler))*/
 
 app.get("*", function(req, res) {
   res.sendFile(__dirname + '/index.html')
 })
+
+
 
 app.listen(port, function(error) {
   if (error) {

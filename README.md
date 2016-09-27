@@ -129,6 +129,10 @@ export function fetchArticle(api) {
 }
 ```
 
+1. 回复的内容
+2. 预览的内容
+
+
 
 
 

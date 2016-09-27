@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux'
+/*import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
@@ -21,4 +21,4 @@ const configureStore = (preloadedState) => {
   return store
 }
 
-export default configureStore
+export default configureStore*/

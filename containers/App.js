@@ -11,12 +11,12 @@ class App extends React.Component {
     super(props)
   }
 
-  
+
   render() {
     const { children, articles, actions, article, comments } = this.props
     return (
       <div>
-        <Topbar />        
+        <Topbar />
         {
           children && React.cloneElement(children, {
             actions: actions,

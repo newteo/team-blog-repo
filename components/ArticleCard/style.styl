@@ -1,15 +1,13 @@
 .article-card
   margin-bottom 3%
   padding 25px
-  width: 46%
-  min-width 300px !important
+  width: 65%
   box-sizing border-box
-  border: solid 2px rgba(229, 211, 142, 0.56)
-  border-radius 15px
+  background #f7f7f7
   .card-info
     .title
       width 100%
-      color: #627f8f
+      color: #4a4a4a
       font-size 24px
       font-weight bold
     .sub-title
@@ -21,11 +19,21 @@
         margin-right 6px
 
 .card-img
-  img
-    margin-bottom 10px
-    height: 200px
-    width: 100%
   p
     margin 0
-    color #29383b
+    color #9b9b9b
+    letter-spacing 0.1em
+    word-spacing 0em
+
+.article-card:hover
+  -webkit-box-shadow: 0 0 6px rgba(#000 .17)
+  -moz-box-shadow: 0 0 6px rgba(#000 .17)
+  box-shadow: 0 0 6px rgba(#000 .17)
+  transition all 200ms ease-in-out
+  .card-img
+    p
+      color #4a4a4a
+      transition all 200ms ease-in-out
+
+
 

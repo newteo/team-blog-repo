@@ -12,10 +12,9 @@ export default class CommentItem extends Component {
 					<img src={avatarUrl} />
 				</div>
 				<div className='comment-info'>
-					<p className='username'>{username}</p>
-					<p className='time'>{time}</p>
-					
-					<MarkdownParse id="text" body={text} />
+					<span className='username'>{username}</span>
+					<span className='time'>{time}</span>
+					<MarkdownParse id="text" className='text' body={text} />
 				</div>
 			</div>
 		)

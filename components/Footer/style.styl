@@ -1,31 +1,50 @@
 .footer
-  padding 80px 0  50px
-  border-top 2px solid #f0e7bf
-  .contact
-    font-size 20px
-    color #4a4a4a
-    text-align center
+  padding 80px 0 50px
+  border-top 3px solid #D8D8D8
   .contact-info
     position relative
-    margin 20px auto
-    width: 50%
-    min-width 600px
-    .copyright
-      text-align center
-    .github
-      float left
+    margin 10px 7.5%
+    min-width 300px
     .company
-      float left
+      display inline-block
+      padding-right 12px
+      height 18px
+      line-height 18px
+      border-right 2px solid #4A4A4A
+      a
+        color #4A4A4A
+      a:hover
+        text-decoration underline
+    .wechat
+      display inline-block
+      padding 0 12px
+      height 18px
+      line-height 18px
+      border-right 2px solid #4A4A4A
+    .wechat-img
+      display none
       position absolute
-      margin-left -40px
-      left 50%
-      text-align center
+      top -100px
+      left 66px
+      width 100px
     .email
-      float right
-    .iconfont
-      margin-right 10px
+      display inline-block
+      padding 0 12px
+      height 18px
+      line-height 18px
+    .email-number
+      display none
+      position absolute
+      top -50px
+      left 160px
+      padding 6px 8px
+      border-left 2px solid #4A90E2
+      background #f7f7f7
+      color #9b9b9b
   .copyright
-    margin-top 60px
-    text-align center
-    color #9b9b9b
-
+    margin-left 7.5%
+    color #4A4A4A
+.wechat:hover + .wechat-img
+  display block
+.email:hover + .email-number
+  display block

@@ -1,23 +1,42 @@
 import React,{ Component } from 'react'
 import { ARTICLES_API } from '../../constant'
 import ArticleCard from '../ArticleCard'
-import { timeHandle } from '../../minix' 
+import { timeHandle } from '../../minix'
 import Loading from '../Loading'
 import { ARTICLES } from '../../settings'
+import TeamInfo from '../TeamInfo'
 
 var css = require('./style.styl')
+var css = require('./mobile-style.styl')
 
 export default class ArticleList extends Component {
 
 	constructor(props) {
     super(props)
+    this.scroll = this.scroll.bind(this)
+    this.state = {
+      display: 'none'
+    }
+  }
+
+  scroll(){
+    if(document.body.scrollTop > 600){
+      this.setState({display: 'block'})
+    }else{
+      this.setState({display: 'none'})
+    }
   }
 
 	componentDidMount() {
-		
+    window.scrollTo(0,0)
 		const { fetchArticleList } = this.props.actions
 		fetchArticleList(ARTICLES_API)
+    window.addEventListener('scroll', this.scroll)
 	}
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scroll)
+  }
 
 	_transMarkdown(markdownString) {
 		// !img[](https://...)
@@ -44,9 +63,12 @@ export default class ArticleList extends Component {
 		return markdownString.replace(firstImg,'').slice(0,80)+'...'
 
 	}
-  
-	render() {
 
+  backTop(){
+    window.scrollTo(0,0)
+  }
+
+	render() {
 		const { data } = this.props.articles
 		if(!data){
 			return <Loading />
@@ -55,7 +77,6 @@ export default class ArticleList extends Component {
 			<div className="article-content">
 				<div className="article-list-header">
 					<p>{ARTICLES.zh}</p>
-					<p>{ARTICLES.eng}</p>
 				</div>
 				<div className="article-list">
 				{
@@ -73,6 +94,10 @@ export default class ArticleList extends Component {
 						)
 					})
 				}
+        <TeamInfo />
+        <div className='top iconfont icon-top'
+             onClick={this.backTop}
+             style={{display: this.state.display}}></div>
 				</div>
 			</div>
 		)

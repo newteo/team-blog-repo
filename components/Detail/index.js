@@ -12,11 +12,11 @@ export default class Detail extends Component {
  	}
 
 	render() {
-		const { actions, article, comments } = this.props
+		const { actions, article, comments, articles } = this.props
 		const id = this.props.params.id
 		return(
 			<div>
-				<Article id={id} actions={actions} article={article}/>
+				<Article id={id} actions={actions} article={article} articles={articles}/>
 				<Comments id={id} actions={actions} comments={comments}/>
 			</div>
 		)

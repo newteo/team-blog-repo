@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import MarkdownParse from '../MarkdownParse'
 
 var css = require('./style.styl')
+var css = require('./mobile-style.styl')
 
 export default class ArticleCard extends Component {
 
@@ -20,7 +21,6 @@ export default class ArticleCard extends Component {
               </div>
             </div>
             <div className='card-img'>
-              <img src={url}/>
               <p>{describe}</p>
             </div>
         </Link>

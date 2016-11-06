@@ -5,6 +5,7 @@ import { timeHandle } from '../../minix'
 import Loading from '../Loading'
 
 var css = require('./style.styl')
+var css = require('./mobile-style.styl')
 
 export default class Comments extends Component {
 	componentDidMount() {
@@ -21,16 +22,19 @@ export default class Comments extends Component {
 		else if(data.length == 0){
 
 			return (
-				<div>
 					<div className="no-comment">
-						<i>文章暂时没有评论</i>					
+            <div className='end-line'>d</div>
+            <i>文章暂时没有评论</i>
+            <a className='reply' href={`https://github.com/newteo/team-blog-repo/issues/${id}`} target="_blank">回复</a>
+            <span className='prompt'>将跳转到GitHub issues回复</span>
 					</div>
-					<a href={`https://github.com/newteo/team-blog-repo/issues/${id}`} target="_blank"><div className="reply">回复</div></a>
-				</div>
 			)
 		}
 		return(
 			<div className='comment'>
+        <div className='end-line'>d</div>
+        <a  className="reply" href={`https://github.com/newteo/team-blog-repo/issues/${id}`} target="_blank">回复</a>
+        <span className='prompt'>将跳转到GitHub issues回复</span>
 				{
 					data.map((item,index) => {
 						return(
@@ -42,7 +46,6 @@ export default class Comments extends Component {
 						)
 					})
 				}
-				<div className="reply"><a href={`https://github.com/newteo/team-blog-repo/issues/${id}`} target="_blank">回复</a></div>
 			</div>
 		)
 

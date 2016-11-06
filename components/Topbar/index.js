@@ -6,8 +6,8 @@ export default class Topbar extends Component {
 	render() {
 		return (
 			<div className="Topbar">
-				<Link to="/home">					
-					<img id="logo" src="/images/logo.png" />
+				<Link to="/home">
+					<img id="logo" src="/images/team-logo.png" />
 				</Link>
 			</div>
 		)

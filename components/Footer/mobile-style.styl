@@ -1,0 +1,29 @@
+@media (max-width: 768px)
+  .opacity-background
+    z-index 10000
+    display none
+    position fixed
+    top 0
+    bottom 0
+    left 0
+    width 100%
+    background rgba(#000, .3)
+    .opacity
+      z-index 10001
+      position fixed
+      top 0
+      bottom 0
+      left 0
+      width 100%
+      background rgba(#000, .3)
+    img
+      z-index 99999
+      display block !important
+      top 50% !important
+      left 50% !important
+      margin-top -50px !important
+      margin-left -50px !important
+      width 150px
+
+  .wechat:hover + .wechat-img
+    display none

@@ -12,7 +12,7 @@ export default class ArticleCard extends Component {
     const { id, title, username, time, url, describe} = this.props
     return(
       <div className="article-card">
-        <Link style={{textDecoration: 'none'}}to={`/posts/${id}`}>
+        <Link style={{textDecoration: 'none'}} to={`/posts/${id}`}>
             <div className="card-info">
               <div className='title'>{title}</div>
               <div className='sub-title'>

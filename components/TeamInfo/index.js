@@ -15,7 +15,7 @@ const members = {
   ]
 }
 
-export default class Topbar extends Component {
+export default class TeamInfo extends Component {
 
   constructor(props) {
     super(props)

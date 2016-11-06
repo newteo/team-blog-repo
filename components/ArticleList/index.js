@@ -4,7 +4,7 @@ import ArticleCard from '../ArticleCard'
 import { timeHandle } from '../../minix'
 import Loading from '../Loading'
 import { ARTICLES } from '../../settings'
-import TeamInfo from '../TeamInfo'
+
 
 var css = require('./style.styl')
 var css = require('./mobile-style.styl')
@@ -60,7 +60,7 @@ export default class ArticleList extends Component {
 
 		let obj = this._transMarkdown(markdownString)
 		const firstImg = (obj && obj.markdown) ? obj.markdown : 'xx'
-		return markdownString.replace(firstImg,'').slice(0,80)+'...'
+		return markdownString.replace(firstImg,'').slice(0,60)+'...'
 
 	}
 
@@ -94,10 +94,11 @@ export default class ArticleList extends Component {
 						)
 					})
 				}
-        <TeamInfo />
+        
         <div className='top iconfont icon-top'
              onClick={this.backTop}
-             style={{display: this.state.display}}></div>
+             style={{display: this.state.display}}>
+        </div>
 				</div>
 			</div>
 		)

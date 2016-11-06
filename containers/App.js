@@ -22,7 +22,8 @@ class App extends React.Component {
             actions: actions,
             articles: articles,
             article: article,
-            comments: comments
+            comments: comments,
+            pathname: this.props.location.pathname
           })
         }
         <Footer />

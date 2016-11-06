@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Banner from '../Banner'
 import ArticleList from '../ArticleList'
+import TeamInfo from '../TeamInfo'
 
 var css = require ('./style.styl')
 
@@ -11,6 +11,7 @@ export default class Home extends Component {
 		return (
 			<div>
 				<ArticleList actions={actions} articles={articles}/>
+				<TeamInfo />
 			</div>
 		)
 	}

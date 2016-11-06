@@ -17,11 +17,12 @@ Topbar和Footer是所有页面都有的组件，children包含两个组件：Hom
 ```
 //childrens
   - Home
-    - Banner
-      - ArticleList
-        - ArticleCard
+    - ArticleList
+       - ArticleCard
+    - TeamInfo
   - Detail
     -Article
+    -SideList
     -Comments
       -CommentItem
 ```

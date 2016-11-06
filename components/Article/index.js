@@ -5,9 +5,7 @@ import highlightjs from 'highlight.js'
 import { timeHandle } from '../../minix'
 import { Link } from 'react-router'
 import Loading from '../Loading'
-
-var css = require('./style.styl')
-var css = require('./mobile-style.styl')
+import './style.styl'
 
 export default class Article extends Component {
   constructor(props) {
@@ -47,13 +45,13 @@ export default class Article extends Component {
     const { fetchArticle, fetchArticleList } = this.props.actions
     const id = this.props.id
     fetchArticle(`${ARTICLES_API}/${id}`)
-    fetchArticleList(ARTICLES_API)
   }
+
 
   render() {
     const { id } = this.props
-    const datas = this.props.articles.data
     const { data } = this.props.article
+
     if(!data){
       return (<Loading />)
     }
@@ -69,18 +67,7 @@ export default class Article extends Component {
           </div>
           <div dangerouslySetInnerHTML={{__html: marked(data.body || '')}} />
         </div>
-        <div className='articles-list'>
-          <h3>文章列表</h3>
-           {
-              datas.map((item, index) => {
-                return (
-                    <Link className='article-titles' key={index} to={`/posts/${id}`}
-                      >
-                    {item.title}</Link>
-                   )
-              })
-            }
-        </div>
+
       </div>
     )
   }

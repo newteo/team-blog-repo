@@ -25,6 +25,7 @@ export default class Detail extends Component {
     }
     return(
       <div className='articles-list'>
+        <h3>文章列表</h3>
        {
           data.map((item, index) => {
             return (

@@ -31,8 +31,6 @@ export default class Detail extends Component {
               <Link className='article-titles' key={index} onClick = {() => window.location.reload()}
                 to={`/posts/${item.number}`}>
                       {item.title}
-              }
-              }
               </Link>
 
             )

@@ -6,7 +6,7 @@ const WECHAT =  "微信公众号"
 const EMAIL = "info@newteo.com"
 const COPYRIGHT = "Copyright \u00A9 2016 newTeo. All rights reserved"
 const ARTICLES = {
-	zh: '新潮博客',
+	zh: '博客列表',
 	eng: 'ARTICLES'
 }
 export {

@@ -26,17 +26,20 @@ export default class Detail extends Component {
     return(
       <div className='articles-list'>
         <h3>文章列表</h3>
-       {
-          data.map((item, index) => {
-            return (
-              <Link className='article-titles' key={index} onClick = {() => window.location.reload()}
-                to={`/posts/${item.number}`}>
-                      {item.title}
-              </Link>
-
-            )
-            })
-        }
+        <div className='titles'>
+          <div className='has-scrollbar'>
+         {
+            data.map((item, index) => {
+              return (
+                <Link className='article-titles' key={index} onClick = {() => window.location.reload()}
+                  to={`/posts/${item.number}`}>
+                        {item.title}
+                </Link>
+              )
+              })
+          }
+          </div>
+        </div>
       </div>
     )
   }

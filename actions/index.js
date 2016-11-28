@@ -6,10 +6,11 @@ function fetchArticleListRequest() {
     type: 'FETCH_ARTICLE_LIST_REQUEST'
   }
 }
-function fetchArticleListSuccess(json) {
+function fetchArticleListSuccess(json, end) {
   return {
     type: 'FETCH_ARTICLE_LIST_SUCCESS',
-    ArticleList: json
+    ArticleList: json,
+    end: end
   }
 }
 function fetchArticleListFailure(err) {
@@ -25,9 +26,14 @@ export function fetchArticleList(api) {
     return fetch(api)
       .then(response => response.json())
       .then(json => {
-        dispatch(fetchArticleListSuccess(json))    
+        const len = json.length
+        if(len<10){
+          dispatch(fetchArticleListSuccess(json, true))
+        }else{
+          dispatch(fetchArticleListSuccess(json, false))
+        }
       })
-      .catch((err) => {        
+      .catch((err) => {
         dispatch(fetchArticleListFailure(err))
       })
   }
@@ -57,9 +63,9 @@ export function fetchArticle(api) {
     return fetch(api)
       .then(response => response.json())
       .then(json => {
-        dispatch(fetchArticleSuccess(json))    
+        dispatch(fetchArticleSuccess(json))
       })
-      .catch((err) => {        
+      .catch((err) => {
         dispatch(fetchArticleFailure(err))
       })
   }
@@ -89,9 +95,9 @@ export function fetchComment(api) {
     return fetch(api)
       .then(response => response.json())
       .then(json => {
-        dispatch(fetchCommentSuccess(json))    
+        dispatch(fetchCommentSuccess(json))
       })
-      .catch((err) => {        
+      .catch((err) => {
         dispatch(fetchCommentFailure(err))
       })
   }

@@ -14,12 +14,23 @@ export default class ArticleList extends Component {
 	constructor(props) {
     super(props)
     this.scroll = this.scroll.bind(this)
+    this.getList = this.getList.bind(this)
+    this.itemsChanged = false
     this.state = {
       display: 'none'
     }
   }
 
   scroll(){
+    const scrollTop = document.body.scrollTop
+    const listHeight = document.getElementById('iscroll').scrollHeight
+    const { end } = this.props.articles
+    if(scrollTop>400 && listHeight-scrollTop<500 && !end){
+      const { loading } = this.props.articles
+      if(!loading){
+          this.getList()
+      }
+    }
     if(document.body.scrollTop > 600){
       this.setState({display: 'block'})
     }else{
@@ -29,10 +40,15 @@ export default class ArticleList extends Component {
 
 	componentDidMount() {
     window.scrollTo(0,0)
-		const { fetchArticleList } = this.props.actions
-		fetchArticleList(ARTICLES_API)
+    this.getList()
     window.addEventListener('scroll', this.scroll)
 	}
+
+  getList(){
+    const { fetchArticleList } = this.props.actions
+    const { page } = this.props.articles
+    fetchArticleList(`${ARTICLES_API}?page=${page}&per_page=10`)
+  }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.scroll)
@@ -69,12 +85,12 @@ export default class ArticleList extends Component {
   }
 
 	render() {
-		const { data } = this.props.articles
-		if(!data){
-			return <Loading />
+		const { data, loading } = this.props.articles
+		if(data==0){
+			return <div id='iscroll'><Loading /></div>
 		}
 		return(
-			<div className="article-content">
+			<div className="article-content" id='iscroll'>
 				<div className="article-list-header">
 					<p>{ARTICLES.zh}</p>
 				</div>
@@ -94,7 +110,7 @@ export default class ArticleList extends Component {
 						)
 					})
 				}
-        
+        {loading ? <div className='article-list-loading'><img src='/images/Loading.gif' /></div> : null}
         <div className='top iconfont icon-top'
              onClick={this.backTop}
              style={{display: this.state.display}}>

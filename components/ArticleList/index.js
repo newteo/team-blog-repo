@@ -40,14 +40,17 @@ export default class ArticleList extends Component {
 
 	componentDidMount() {
     window.scrollTo(0,0)
-    this.getList()
+    const { data } = this.props.articles
+    if(data.length==0){
+      this.getList()
+    }
     window.addEventListener('scroll', this.scroll)
 	}
 
   getList(){
     const { fetchArticleList } = this.props.actions
     const { page } = this.props.articles
-    fetchArticleList(`${ARTICLES_API}?page=${page}&per_page=10`)
+    fetchArticleList(`${ARTICLES_API}?page=${page}&per_page=20`)
   }
 
   componentWillUnmount() {

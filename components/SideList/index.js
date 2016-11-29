@@ -12,10 +12,11 @@ export default class Detail extends Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0,0)
-    const {fetchArticleList } = this.props.actions
-    const id = this.props.id
-    fetchArticleList(ARTICLES_API)
+    const { data, page } = this.props.articles
+    if(data.length==0){
+      const {fetchArticleList } = this.props.actions
+      fetchArticleList(`${ARTICLES_API}?page=${page}&per_page=20`)
+    }
   }
 
   render() {

@@ -27,7 +27,7 @@ export function fetchArticleList(api) {
       .then(response => response.json())
       .then(json => {
         const len = json.length
-        if(len<10){
+        if(len<20){
           dispatch(fetchArticleListSuccess(json, true))
         }else{
           dispatch(fetchArticleListSuccess(json, false))

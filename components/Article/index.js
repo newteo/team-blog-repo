@@ -42,7 +42,7 @@ export default class Article extends Component {
 
   componentDidMount() {
     window.scrollTo(0,0)
-    const { fetchArticle, fetchArticleList } = this.props.actions
+    const { fetchArticle } = this.props.actions
     const id = this.props.id
     fetchArticle(`${ARTICLES_API}/${id}`)
   }

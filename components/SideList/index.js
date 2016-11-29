@@ -13,7 +13,7 @@ export default class Detail extends Component {
 
   componentDidMount() {
     const { data, page } = this.props.articles
-    if(data.length==0){
+    if(data.length===0){
       const {fetchArticleList } = this.props.actions
       fetchArticleList(`${ARTICLES_API}?page=${page}&per_page=20`)
     }

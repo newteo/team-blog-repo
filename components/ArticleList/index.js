@@ -39,11 +39,11 @@ export default class ArticleList extends Component {
   }
 
 	componentDidMount() {
-    window.scrollTo(0,0)
     const { data } = this.props.articles
-    if(data.length==0){
+    if(data.length===0){
       this.getList()
     }
+    window.scrollTo(0,0)
     window.addEventListener('scroll', this.scroll)
 	}
 

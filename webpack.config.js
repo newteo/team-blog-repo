@@ -11,14 +11,15 @@ module.exports = {
     vendors: [
       'react',
       'react-dom',
-      'react-router',
-      'react-redux'
+      'react-router'
     ]
   },
 
   output: {
     filename: 'application.js',
-    path: path.join(__dirname, './dist')
+    path: path.join(__dirname, './dist'),
+    publicPath: "/dist/",
+    chunkFilename: '[name].[chunkhash:5].chunk.js'
   },
 /*  plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

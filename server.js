@@ -1,37 +1,20 @@
-// var webpack = require('webpack')
-// var webpackDevMiddleware = require('webpack-dev-middleware')
-// var webpackHotMiddleware = require('webpack-hot-middleware')
-// var config = require('./webpack.config')
-
-
-// var app = new (require('express'))()
-var port = 5000
-
-// var compiler = webpack(config)
-/////////
-// const express = require('express')
-/////////
-
 const express = require('express')
-const app = express()
 
-app.use('/images', express.static('images'))
-app.use('/dist', express.static('dist'))
+// 文件名 `app.js` 則命名 `app`
+// 文件名 `server.js` 則命名 `server`
+const server = express()
+const __PORT__ = process.env.PORT || 5000
 
+// 統一靜態文件目錄 `./assets/`，有 `file-loader` 在代碼 `require` 就好
+server.use('/assets', express.static('assets'))
 
-/*app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))*/
-
-app.get("*", function(req, res) {
-  res.sendFile(__dirname + '/index.html')
+// 請求的英文單詞 `request`，響應的英文單詞 `response`，完整單詞一看就明白
+// 統一單引號優先，統一匿名函數格式 `() => {}`
+server.get('*', (request, response) => {
+  response.sendFile(__dirname + '/index.html')
 })
 
-
-
-app.listen(port, function(error) {
-  if (error) {
-    console.error(error)
-  } else {
-    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
-  }
+server.listen(__PORT__, () => {
+  console.log(`* Listening on http://localhost:${__PORT__}`)
+  console.log('* Use Ctrl-C to stop')
 })

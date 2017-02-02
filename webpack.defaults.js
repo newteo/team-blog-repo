@@ -67,7 +67,7 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin(__ENV__ ? 'application.css' : 'application-[hash].css'),
-    new webpack.optimize.CommonsChunkPlugin('packages', __ENV__ ? 'vendors.js' : 'vendors-[hash].js')
+    new webpack.optimize.CommonsChunkPlugin('vendors', __ENV__ ? 'vendors.js' : 'vendors-[hash].js')
   ],
   // 擴展名都是有 `.` 的
   resolve: {

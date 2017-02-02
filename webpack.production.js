@@ -1,21 +1,20 @@
+require('babel-register')
+
+// 不要使用 `var` 關鍵字，常量使用 `const`，變量使用 `let`
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const webpackConfig = require('./webpack.config')
+const AssetsPlugin = require('assets-webpack-plugin')
+const defaults = require('./webpack.defaults')
 
-webpackConfig.plugins = [
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify("production")
-    },
-  }),
-  new ExtractTextPlugin('application.css'),
-  new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
-  })
-]
-
-module.exports = webpackConfig
+module.exports = Object.assign(defaults, {
+  plugins: defaults.plugins.concat([
+    new AssetsPlugin({
+      path: path.join(__dirname, 'assets')
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ])
+})

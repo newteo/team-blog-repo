@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ARTICLES_API } from '../../constant'
 import CommentItem from '../CommentItem'
-import { timeHandle } from '../../minix'
+// import { timeHandle } from '../../minix'
 import Loading from '../Loading'
 
 var css = require('./style.styl')
@@ -40,7 +40,7 @@ export default class Comments extends Component {
 						return(
 							<CommentItem key={index} avatarUrl={item.user.avatar_url}
 								username={item.user.login}
-								time={timeHandle(item.updated_at)}
+								time={String(item.updated_at)}
 								text={item.body}
 							/>
 						)

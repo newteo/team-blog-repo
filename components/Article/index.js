@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import marked, { Renderer } from 'marked'
 import { ARTICLES_API } from '../../constant'
 import highlightjs from 'highlight.js'
-import { timeHandle } from '../../minix'
+// import { timeHandle } from '../../minix'
 import { Link } from 'react-router'
 import Loading from '../Loading'
 import './style.styl'
@@ -63,7 +63,7 @@ export default class Article extends Component {
           <div className='article-info'>
             <a className='login'
                href={'https://github.com/' + data.user.login}>{data.user.login}</a>
-            <span className='updated'>{timeHandle(data.updated_at)}</span>
+            <span className='updated'>{String(data.updated_at)}</span>
           </div>
           <div dangerouslySetInnerHTML={{__html: marked(data.body || '')}} />
         </div>

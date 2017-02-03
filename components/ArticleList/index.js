@@ -3,7 +3,7 @@ import { ARTICLES_API } from '../../constant'
 import ArticleCard from '../ArticleCard'
 import { yearMonthDay } from '../../utils'
 import Loading from '../Loading'
-import { ARTICLES } from '../../settings'
+// import { ARTICLES } from '../../settings'
 
 
 var css = require('./style.styl')
@@ -95,7 +95,7 @@ export default class ArticleList extends Component {
 		return(
 			<div className="article-content" id='iscroll'>
 				<div className="article-list-header">
-					<p>{ARTICLES.zh}</p>
+					<p>{'ARTICLES.zh'}</p>
 				</div>
 				<div className="article-list">
 				{

@@ -5,11 +5,11 @@ import article from './article'
 import comments from './comments'
 
 const rootReducer = combineReducers({
-	articles,
-	article,
-	comments,
-  routing,
-
+  // Object 格式 { a, b, c }，拒絕 { a, b, c, }
+  articles,
+  article,
+  comments,
+  routing
 })
 
 export default rootReducer

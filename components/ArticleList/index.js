@@ -1,17 +1,19 @@
-import React,{ Component } from 'react'
+// 格式 import React, { Component } from 'react'
+import React, { Component } from 'react'
 import { ARTICLES_API } from '../../constant'
 import ArticleCard from '../ArticleCard'
 import { yearMonthDay } from '../../utils'
 import Loading from '../Loading'
-// import { ARTICLES } from '../../settings'
+import { locales } from '../../settings'
 
-
+// 不要使用 `var` 關鍵字，常量使用 `const`，變量使用 `let`
+// 採用兩個空格，不用縮進
+// 誰寫的，自己更正
 var css = require('./style.styl')
 var css = require('./mobile-style.styl')
 
 export default class ArticleList extends Component {
-
-	constructor(props) {
+  constructor(props) {
     super(props)
     this.scroll = this.scroll.bind(this)
     this.getList = this.getList.bind(this)
@@ -21,10 +23,14 @@ export default class ArticleList extends Component {
     }
   }
 
+  // 函數命名規則
+  // 條件語句格式
+  // 空格空格空格
   scroll(){
     const scrollTop = document.body.scrollTop
     const listHeight = document.getElementById('iscroll').scrollHeight
     const { end } = this.props.articles
+
     if(scrollTop>400 && listHeight-scrollTop<500 && !end){
       const { loading } = this.props.articles
       if(!loading){

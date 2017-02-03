@@ -2,6 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import MarkdownParse from '../MarkdownParse'
 
+// 不要使用 `var` 關鍵字，常量使用 `const`，變量使用 `let`
+// 採用兩個空格，不用縮進
+// 誰寫的，自己更正
 var css = require('./style.styl')
 var css = require('./mobile-style.styl')
 

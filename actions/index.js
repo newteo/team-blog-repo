@@ -1,44 +1,45 @@
 import fetch from 'isomorphic-fetch'
 
-
-function fetchArticleListRequest() {
+const fetchArticleListRequest = () => {
   return {
     type: 'FETCH_ARTICLE_LIST_REQUEST'
   }
 }
-function fetchArticleListSuccess(json, end) {
+
+const fetchArticleListSuccess = (json, end) => {
   return {
     type: 'FETCH_ARTICLE_LIST_SUCCESS',
     ArticleList: json,
     end: end
   }
 }
-function fetchArticleListFailure(err) {
+
+const fetchArticleListFailure = (err) => {
   return {
     type: 'FETCH_ARTICLE_LIST_FAILURE',
     err: err
   }
 }
 
-export function fetchArticleList(api) {
+export const fetchArticleList = (api) => {
   return dispatch => {
     dispatch(fetchArticleListRequest())
-    return fetch(api)
-      .then(response => response.json())
-      .then(json => {
-        const len = json.length
-        if(len<20){
-          dispatch(fetchArticleListSuccess(json, true))
-        }else{
-          dispatch(fetchArticleListSuccess(json, false))
-        }
-      })
-      .catch((err) => {
-        dispatch(fetchArticleListFailure(err))
-      })
+
+    return fetch(api).then(response => response.json()).then(json => {
+      const len = json.length
+
+      if(len < 20) {
+        dispatch(fetchArticleListSuccess(json, true))
+      } else {
+        dispatch(fetchArticleListSuccess(json, false))
+      }
+    }).catch((err) => {
+      dispatch(fetchArticleListFailure(err))
+    })
   }
 }
 
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 function fetchArticleRequest() {
   return {
     type: 'FETCH_ARTICLE_REQUEST'
@@ -102,4 +103,3 @@ export function fetchComment(api) {
       })
   }
 }
-

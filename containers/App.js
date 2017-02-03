@@ -6,11 +6,9 @@ import Topbar from '../components/Topbar'
 import Footer from '../components/Footer'
 
 class App extends React.Component {
-
   constructor(props) {
     super(props)
   }
-
 
   render() {
     const { children, articles, actions, article, comments } = this.props

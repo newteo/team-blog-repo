@@ -24,7 +24,7 @@ module.exports = {
   // `publicPath` 和 `chunkFilename` 這裏沒用到
   output: {
     path: path.join(__dirname, 'assets'),
-    filename: __ENV__ ? 'application.js' : 'application-[hash].js'
+    filename: __DEV__ ? 'application.js' : 'application-[hash].js'
   },
   module: {
     loaders: [
@@ -66,8 +66,8 @@ module.exports = {
         NODE_ENV: JSON.stringify(__ENV__)
       }
     }),
-    new ExtractTextPlugin(__ENV__ ? 'application.css' : 'application-[hash].css'),
-    new webpack.optimize.CommonsChunkPlugin('vendors', __ENV__ ? 'vendors.js' : 'vendors-[hash].js')
+    new ExtractTextPlugin(__DEV__ ? 'application.css' : 'application-[hash].css'),
+    new webpack.optimize.CommonsChunkPlugin('vendors', __DEV__ ? 'vendors.js' : 'vendors-[hash].js')
   ],
   // 擴展名都是有 `.` 的
   resolve: {

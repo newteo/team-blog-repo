@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import { ARTICLES_API } from '../../constant'
 import ArticleCard from '../ArticleCard'
-// import { timeHandle } from '../../minix'
+import { yearMonthDay } from '../../utils'
 import Loading from '../Loading'
 import { ARTICLES } from '../../settings'
 
@@ -105,7 +105,7 @@ export default class ArticleList extends Component {
 								<ArticleCard key={index}
 									id={item.number}
 									title={item.title}
-                  time={String(item.updated_at)}
+                  time={yearMonthDay(item.updated_at)}
 									username={item.user.login}
 									url={(obj && obj.url) ? obj.url : '/images/nature-600-337.jpg'}
 									describe={this._getDescribe(item.body)}

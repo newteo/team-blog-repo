@@ -10,9 +10,10 @@ import NotFound from './components/NotFound'
 // 不使用難懂的代碼
 // 少既是多
 
-export default <Route path="/" component={App}>
-  <IndexRoute component={Home} />
-  <Route path="/home" component={Home} />
-  <Route path="/posts/:id" component={Detail} />
-  <Route path="*" component={NotFound} />
-</Route>
+export default (
+  <Route path="/" component={App}>
+    <IndexRoute component={Home} />
+    <Route path="/posts/:id" component={Detail} />
+    <Route path="*" component={NotFound} />
+  </Route>
+)

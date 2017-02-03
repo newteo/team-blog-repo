@@ -1,10 +1,13 @@
 {
   "name": "team-blog-repo",
   "version": "1.0.0",
-  "description": "This is a very blog system for display of newteo App \t- Topbar \t{children}",
   "main": "index.js",
-  "directories": {
-    "test": "test"
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo test/test_helper.js",
+    "build": "NODE_ENV=production webpack --config webpack.production.js"
   },
   "dependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -25,7 +28,6 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-register": "^6.22.0",
     "classnames": "^2.2.5",
-    "cross-env": "^1.0.8",
     "css-loader": "^0.25.0",
     "expect": "^1.8.0",
     "express": "^4.13.3",
@@ -42,13 +44,11 @@
     "react-addons-test-utils": "^0.14.7",
     "react-tap-event-plugin": "^0.2.0",
     "reapop": "^0.4.0",
-    "reapop-theme-wybo": "^0.2.1",
     "redux": "^3.1.2",
     "redux-logger": "^2.6.1",
     "redux-mock-store": "^1.2.0",
     "redux-thunk": "^2.1.0",
     "remarkable": "^1.6.2",
-    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
@@ -56,21 +56,5 @@
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.9.1"
-  },
-  "scripts": {
-    "start": "node server.js",
-    "test": "cross-env NODE_ENV=test mocha --timeout 8000 --recursive --compilers js:babel-register --require ignore-styles --require ./test/setup.js",
-    "test:watch": "npm test -- --watch",
-    "build": "webpack -p"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/newteo/team-blog-repo.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/newteo/team-blog-repo/issues"
-  },
-  "homepage": "https://github.com/newteo/team-blog-repo#readme"
+  }
 }

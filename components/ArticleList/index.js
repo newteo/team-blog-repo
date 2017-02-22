@@ -119,7 +119,7 @@ export default class ArticleList extends Component {
 						)
 					})
 				}
-        {loading ? <div className='article-list-loading'><img src='/images/Loading.gif' /></div> : null}
+        {loading ? <div className='article-list-loading'><img src={`/assets/${require('../../images/Loading.gif')}`} /></div> : null}
         <div className='top iconfont icon-top'
              onClick={this.backTop}
              style={{display: this.state.display}}>

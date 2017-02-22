@@ -10,7 +10,7 @@ export default class Topbar extends Component {
     return (
       <div className="Topbar">
         <Link to="/home">
-          <img id="logo" src="/images/team-logo.png" />
+          <img id="logo" src={`/assets/${require('../../images/team-logo.png')}`} />
         </Link>
       </div>
     )
